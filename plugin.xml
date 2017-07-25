@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin id="com.clicksoftware.clickmobile.touch.filesplugin" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+
+  <name>FilesPlugin</name>
+  <description>Cordova plugin to support files actions</description>
+  <license>ClickPhoneGap</license>
+  <keywords>cordova,code,update</keywords>
+
+  <repo>http://cmtouchlinux/phonegap/v2/tree/master/dev/CustomPlugins/FilesPlugin</repo>
+  <issue>http://cmtouchlinux/phonegap/v2/tree/master/dev/CustomPlugins/FilesPlugin/issues</issue>
+
+  <dependency id="cordova-plugin-add-swift-support"/>
+  <dependency id="cordova-plugin-file"/>
+
+  <engines>
+    <engine name="cordova-ios" version=">=3.8"></engine>
+    <engine name="cordova-plugman" version=">=4.2.0"></engine>
+    <!-- needed for gradleReference support -->
+  </engines>
+
+  <!-- JavaScrip Library Sources -->
+  <js-module name="FilesPlugin" src="www/filesplugin.js">
+    <clobbers target="window.plugins.FilesPLugin"/>
+  </js-module>
+
+  <!-- Config.xml preferences -->
+  <config-file parent="/*" target="config.xml">
+  </config-file>
+
+  <platform name="ios">
+    <pods-config use-frameworks="true" ios-min-version="8.0"/>
+    <pod id="AWSS3"/>
+    <pod id="AWSCore"/>
+    <pod id="AWSCognito"/>
+
+    <!-- Plugin inclusion in Cordova config.xml -->
+    <config-file parent="/*" target="config.xml">
+      <feature name="FilesPlugin">
+        <param name="ios-package" value="FilesPlugin"/>
+      </feature>
+    </config-file>
+
+    <!-- Plugin source code -->
+    <header-file src="src/ios/FilesPlugin.h"/>
+    <source-file src="src/ios/FilesPlugin.m" compiler-flags="-fno-objc-arc"/>
+
+    <!--<header-file src="src/ios/S3FileObject.h"/>
+    <source-file src="src/ios/S3FileObject.m"/>
+
+    <header-file src="src/ios/QSStrings.h"/>
+    <source-file src="src/ios/QSStrings.m" compiler-flags="-fno-objc-arc"/>
+
+    <header-file src="src/ios/QSFileManager.h"/>
+    <source-file src="src/ios/QSFileManager.m" compiler-flags="-fno-objc-arc"/>
+
+    <header-file src="src/ios/QSHttpClient.h"/>
+    <source-file src="src/ios/QSHttpClient.m"  compiler-flags="-fno-objc-arc"/>
+
+    <header-file src="src/ios/GTMNSString+HTML.h"/>
+    <source-file src="src/ios/GTMNSString+HTML.m" compiler-flags="-fno-objc-arc"/>
+
+    <header-file src="src/ios/QSUtilities.h"/>
+    <header-file src="src/ios/GTMDefines.h"/>-->
+
+    <framework src="src/ios/AWSS3.framework" custom="true" embed="true"/>
+    <framework src="src/ios/AWSCore.framework" custom="true" embed="true"/>
+    <framework src="src/ios/AWSCognito.framework" custom="true" embed="true"/>
+
+  </platform>
+</plugin>

@@ -1,0 +1,34 @@
+{
+  "name": "com.clicksoftware.clickmobile.touch.filesplugin",
+  "version": "1.0.0",
+  "description": "Cordova plugin to support files actions",
+  "cordova": {
+    "id": "com.clicksoftware.clickmobile.touch.filesplugin",
+    "platforms": [
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://cmtouchlinux/phonegap/v2/tree/master/dev/CustomPlugins/FilesPlugin"
+  },
+  "keywords": [
+    "cordova",
+    "code",
+    "update",
+    "ecosystem:cordova",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova-ios",
+      "version": ">=3.8"
+    },
+    {
+      "name": "cordova-plugman",
+      "version": ">=4.2.0"
+    }
+  ],
+  "author": "",
+  "license": "ClickPhoneGap"
+}
